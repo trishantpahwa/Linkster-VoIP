@@ -20,8 +20,8 @@ def on_message(client, userdata, msg):
 
 
 client = mqtt.Client()
-client.connect("192.168.1.28", 1883, 60)
-client.subscribe("voip")
+client.connect("192.168.1.33", 1883, 60)
+client.subscribe("voip1")
 client.on_message = on_message
 client.loop_forever()
 stream.start_stream()

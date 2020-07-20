@@ -1,4 +1,3 @@
-import wave
 import pyaudio
 import time
 import paho.mqtt.client as mqtt
@@ -12,10 +11,11 @@ p = pyaudio.PyAudio()  # Create an interface to PortAudio
 
 print('Recording')
 client = mqtt.Client()
-client.connect("192.168.1.28", 1883, 60)
+client.connect("192.168.1.33", 1883, 60)
 
 def callback(in_data, frame_count, time_info, status):
-    print("Published")
+    # print("Published")
+    print(in_data[0])
     client.publish("voip", in_data)
     return (None, pyaudio.paContinue)
 
